@@ -67,7 +67,7 @@ function AirlineRoutes(){
             <svg className = {styles.svgStyle} id={"barchart"} width={barchart_width} height={barchart_height}>
                 <BarChart offsetX={barchart_margin.left} offsetY={barchart_margin.top} 
                     height={barchart_inner_height} width={barchart_inner_width} data={airlines}
-                    selectedAirlinID={selectedAirlineID} setSelectedAirlineID={setSelectedAirlineID}
+                    selectedAirlineID={selectedAirlineID} setSelectedAirlineID={setSelectedAirlineID}
                 />
             </svg>
         </Col>

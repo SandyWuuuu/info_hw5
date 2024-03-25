@@ -35,11 +35,11 @@ export function BarChart (props) {
     // 3. return the bars; (Remember to use data.map());
     // 4. return <XAxis/> and <YAxis/>
     return (
-        <svg width={width + offsetX} height={height + offsetY + offsetY + offsetY} className="svgStyle">
+        < g transform = {`translate(${offsetX},${offsetY})`}>
             {/* Plot horizontal bars */}
             {data.map((d, index) => (
                 <rect key={index}
-                      x={offsetX}
+                      x={0}
                       y={yScale(d.AirlineName)}
                       width={xScale(d.Count)}
                       height={yScale.bandwidth()}
@@ -51,22 +51,18 @@ export function BarChart (props) {
             ))}
 
             {/* Translate the XAxis based on offsetY */}
-            <g transform={`translate(${offsetX}, ${height - offsetY})`}>
-                <XAxis xScale={xScale} height={offsetY} width={width} />
-            </g>
+            
+                <XAxis xScale={xScale} height={height} width={width} />
+            
 
             {/* Render the YAxis */}
-            <g transform={`translate(${offsetX}, 0)`}>
-                <YAxis yScale={yScale} height={offsetX} offsetX={offsetX} />
-            </g>
-        </svg>
-    );
-}
-
-    
+            
+                <YAxis yScale={yScale} height={height} offsetX={offsetX} />
+           
+</g>)
     
     
  //   return <g transform={`translate(${offsetX}, ${offsetY})`}>
         
 //   </g>
-//}
+}
